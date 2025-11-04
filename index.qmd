@@ -5,7 +5,7 @@ format:
 bibliography: references.bib
 jupyter: python3
 execute:
-  echo: true
+  echo: false
   eval: true
 ---
 
@@ -27,7 +27,7 @@ Counterintuitively, the surgeon who doesn't "look the part" may actually be the 
 
 ```{python}
 #| label: simulate-data
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 #| include: false
@@ -79,7 +79,7 @@ patients_df.head()
 
 ```{python}
 #| label: load-data-python
-#| echo: true
+#| echo: false
 
 import pandas as pd
 
@@ -96,7 +96,7 @@ Let's use data to figure out which surgeon performs better. @fig-plot-outcomes s
 ```{python}
 #| label: fig-plot-outcomes
 #| fig-cap: "Post-Surgical Symptom Score (lower is better) - Observed Data"
-#| echo: true
+#| echo: false
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -110,7 +110,7 @@ dreamy_mean = dreamy_df['post_surgical_score'].mean()
 duck_mean = duck_df['post_surgical_score'].mean()
 
 # Create figure
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(7, 4))
 
 # Plot scatter points
 ax.scatter(dreamy_df['patient'], dreamy_df['post_surgical_score'], 
@@ -192,7 +192,7 @@ Since we cannot rerun history with randomization, we run an experiment to collec
 
 ```{python}
 #| label: simulate-data-randomized
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 #| include: false
@@ -240,7 +240,7 @@ patients_randomized_df.head()
 
 ```{python}
 #| label: load-data-randomized-python
-#| echo: true
+#| echo: false
 
 import pandas as pd
 
@@ -257,7 +257,7 @@ patients_randomized_df.head()
 ```{python}
 #| label: fig-plot-outcomes-randomized
 #| fig-cap: "Post-Surgical Symptom Score (lower is better) for randomized patients."
-#| echo: true
+#| echo: false
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -271,7 +271,7 @@ dreamy_randomized_mean = dreamy_randomized_df['post_surgical_score'].mean()
 duck_randomized_mean = duck_randomized_df['post_surgical_score'].mean()
 
 # Create figure
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(7, 4))
 
 # Plot scatter points
 ax.scatter(dreamy_randomized_df['patient'], dreamy_randomized_df['post_surgical_score'], 
@@ -317,7 +317,7 @@ The key to handling a common cause confounder is to stratify by the common cause
 ```{python}
 #| label: fig-plot-outcomes-severity
 #| fig-cap: "Post-Surgical Symptom Score (lower is better) by Patient and Severity"
-#| echo: true
+#| echo: false
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -331,7 +331,7 @@ dreamy_mean = dreamy_df['post_surgical_score'].mean()
 duck_mean = duck_df['post_surgical_score'].mean()
 
 # Create figure
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots(figsize=(7, 4))
 
 # Add shaded region highlighting severity between -1 and 1
 ax.axvspan(-1, 1, alpha=0.15, color='gray', zorder=0, label='Overlap Region')
